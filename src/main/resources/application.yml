@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: chat-service
+server:
+  port: 8321
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8320/eureka/
+  instance:
+    hostname: localhost

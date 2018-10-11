@@ -16,6 +16,8 @@ public class ChatServiceApplicationTests {
 	public void contextLoads() {
 		LocalDateTime now = LocalDateTime.now();
 
+		now = now.plusHours(3);
+
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd HH:mm");
 
 		String nowString = now.format(formatter);

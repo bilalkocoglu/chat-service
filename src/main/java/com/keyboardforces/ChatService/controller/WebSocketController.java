@@ -35,6 +35,8 @@ public class WebSocketController {
 
         LocalDateTime now = LocalDateTime.now();
 
+        now = now.plusHours(3);
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd HH:mm");
 
         String nowString = now.format(formatter);

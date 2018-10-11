@@ -1,6 +1,7 @@
 package com.keyboardforces.ChatService.controller;
 
 import com.google.gson.Gson;
+import com.keyboardforces.ChatService.dto.ChatResponseDTO;
 import com.keyboardforces.ChatService.dto.MessageDTO;
 import com.keyboardforces.ChatService.dto.NativeHeadersDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Controller
@@ -27,12 +29,26 @@ public class WebSocketController {
         this.simpMessagingTemplate = simpMessagingTemplate;
     }
 
-    @MessageMapping("/send/message")
+    @MessageMapping(value = "/send/message")
     public void onReceivedMessage(@Payload String message, MessageHeaders messageHeaders){
         Date date = new Date();
+
+        LocalDateTime now = LocalDateTime.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd HH:mm");
+
+        String nowString = now.format(formatter);
+
         LinkedMultiValueMap linkedMultiValueMap = messageHeaders.get("nativeHeaders", LinkedMultiValueMap.class);
+
         System.out.println(linkedMultiValueMap.get("from").get(0));
-        this.simpMessagingTemplate.convertAndSend("/chat",
-                (date.getMonth()+1) + "." +date.getDay() + "-" + date.getHours() + ":" + date.getMinutes() + "-> " + message);
+
+        ChatResponseDTO chatResponseDTO = new ChatResponseDTO();
+
+        chatResponseDTO.setDate(nowString);
+        chatResponseDTO.setMessage(message);
+        chatResponseDTO.setInfo("kişi bilgisi");
+
+        this.simpMessagingTemplate.convertAndSend("/chat", chatResponseDTO);
     }
 }

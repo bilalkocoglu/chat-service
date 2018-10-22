@@ -1,5 +1,6 @@
 package com.keyboardforces.ChatService.service;
 
+import com.keyboardforces.ChatService.controller.UploadController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
@@ -7,6 +8,7 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -45,7 +47,6 @@ public class StorageService {
                 e.printStackTrace();
             }
 
-
         }catch (Exception e) {
             LOGGER.error(e.toString());
         }
@@ -76,5 +77,4 @@ public class StorageService {
             throw new RuntimeException("Could not initialize storage!");
         }
     }
-
 }

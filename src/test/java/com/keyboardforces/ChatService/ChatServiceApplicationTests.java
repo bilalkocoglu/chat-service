@@ -1,14 +1,18 @@
 package com.keyboardforces.ChatService;
 
+import com.keyboardforces.ChatService.controller.UploadController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -28,7 +32,7 @@ public class ChatServiceApplicationTests {
 
 		System.out.println(nowString);
 	*/
-
+/*
 		try {
 			StringBuilder sb = new StringBuilder();
 			sb.append("Test String");
@@ -46,6 +50,7 @@ public class ChatServiceApplicationTests {
 		}catch (Exception e){
 			e.printStackTrace();
 		}
+*/
 
 	}
 

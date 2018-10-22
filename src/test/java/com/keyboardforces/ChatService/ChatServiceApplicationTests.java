@@ -28,11 +28,12 @@ public class ChatServiceApplicationTests {
 
 		System.out.println(nowString);
 	*/
+
 		try {
 			StringBuilder sb = new StringBuilder();
 			sb.append("Test String");
 
-			File f = new File("C:\\Users\\pC2\\Desktop\\test.zip");
+			File f = new File("upload-dir/deneme.zip");
 			ZipOutputStream out = new ZipOutputStream(new FileOutputStream(f));
 			ZipEntry e = new ZipEntry("mytext.txt");
 			out.putNextEntry(e);

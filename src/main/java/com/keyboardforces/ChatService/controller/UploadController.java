@@ -44,6 +44,7 @@ public class UploadController {
         }
     }
 
+    @CrossOrigin
     @GetMapping("/getallfiles")
     public ResponseEntity<List<String>> getListFiles(Model model) {
         files.add("UMLPro.zip");
